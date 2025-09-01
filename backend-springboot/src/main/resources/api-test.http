@@ -1,0 +1,43 @@
+### ======================================================
+### 陳家金融商品喜好紀錄系統 API 測試
+### ======================================================
+
+# 變數定義
+@host = http://localhost:8080/api/v1
+@userId = A123456789
+@sn_to_delete = 2
+@sn_to_update = 1
+
+
+### 1. 查詢指定使用者的所有喜好商品 (GET)
+GET {{host}}/likes/user/{{userId}}
+
+
+### 2. 新增一筆喜好商品 (POST)
+# product_id: 2 代表 "陳家亞洲高收益債券"
+POST {{host}}/likes
+Content-Type: application/json
+
+{
+  "userId": "{{userId}}",
+  "productId": 2,
+  "quantity": 250,
+  "debitAccount": "1111999666"
+}
+
+
+### 3. 更新一筆喜好商品 (PUT)
+# 我們將第一筆紀錄(sn=1)的商品(product_id=1)數量從 100 改成 150
+PUT {{host}}/likes/{{sn_to_update}}
+Content-Type: application/json
+
+{
+  "productId": 1,
+  "quantity": 150,
+  "debitAccount": "1111999666"
+}
+
+
+### 4. 刪除一筆喜好商品 (DELETE)
+# 我們將 sn=2 的紀錄刪除
+DELETE {{host}}/likes/{{sn_to_delete}}

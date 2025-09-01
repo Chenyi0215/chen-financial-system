@@ -1,0 +1,29 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Maven (for Java backend)
+/backend-springboot/target/
+/backend-springboot/pom.xml.tag
+/backend-springboot/pom.xml.releaseBackup
+/backend-springboot/pom.xml.versionsBackup
+/backend-springboot/pom.xml.next
+/backend-springboot/release.properties
+/backend-springboot/dependency-reduced-pom.xml
+/backend-springboot/buildNumber.properties
+
+# Node.js (for Vue frontend, even before initialization)
+# We add these now so we don't forget later
+/frontend-vue/node_modules/
+/frontend-vue/dist/
+/frontend-vue/.env.local
+/frontend-vue/.env.*.local
+/frontend-vue/npm-debug.log*
+/frontend-vue/yarn-debug.log*
+/frontend-vue/yarn-error.log*
+/frontend-vue/coverage/
+/frontend-vue/.vite-inspect/
+
+# OS generated files
+.DS_Store
+Thumbs.db
