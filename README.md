@@ -17,10 +17,6 @@
 2.  ```bash
     cd frontend-vue/vue-project
     ```
-2.  安裝專案所需的依賴套件 (僅第一次需要)：
-    ```bash
-    npm install
-    ```
 3.  啟動前端開發伺服器：
     ```bash
     npm run dev
