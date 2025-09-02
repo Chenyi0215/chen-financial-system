@@ -41,7 +41,7 @@
 import { ref, watch, computed, onMounted } from 'vue';
 import apiService from '@/services/apiService';
 
-// 4. 接收從父元件傳來的 prop，名為 itemToEdit
+// 接收從父元件傳來的 prop，名為 itemToEdit
 const props = defineProps({
   itemToEdit: {
     type: Object,
@@ -79,15 +79,11 @@ const formData = ref({});
 const isSubmitting = ref(false);
 const errorMessage = ref('');
 
-// 6. 使用 watch 監聽 itemToEdit 的變化
+// 使用 watch 監聽 itemToEdit 的變化
 watch(() => props.itemToEdit, (newItem) => {
   if (newItem) {
-    // 如果是編輯模式，用傳入的資料填滿表單
     formData.value = {
-      // 這裡需要從 itemToEdit 中提取 productId, quantity, debitAccount
-      // 但我們從 GET API 拿到的資料沒有 productId，這是一個小問題
-      // 暫時我們先假設可以拿到
-      productId: newItem.productId || 1, // 暫時寫死
+      productId: newItem.productId || 1,
       quantity: newItem.quantity || 1,
       debitAccount: newItem.debitAccount
     };
@@ -111,10 +107,8 @@ const submitForm = async () => {
   errorMessage.value = '';
   try {
     if (isEditMode.value) {
-      // 7. 如果是編輯模式，呼叫 update API
       await apiService.updateLike(props.itemToEdit.sn, formData.value);
     } else {
-      // 否則，呼叫 add API
       await apiService.addLike(formData.value);
     }
     emit('submitted');
@@ -135,7 +129,6 @@ const formatCurrency = (value, showSymbol = true) => {
     maximumFractionDigits: 2
   };
   if (!showSymbol) {
-    // 如果不要貨幣符號，就用純數字格式
     return new Intl.NumberFormat('en-US', {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2

@@ -65,7 +65,6 @@ import apiService from '@/services/apiService';
 import PreferenceForm from '@/components/PreferenceForm.vue';
 import DeleteConfirmationModal from '@/components/DeleteConfirmationModal.vue';
 
-//    ref() 就像是為變數裝上了一個感應器，當變數改變時，畫面會自動更新
 const preferences = ref([]); // 用於存放從 API 取得的喜好清單陣列
 const loading = ref(true);    // 用於判斷是否正在載入中，預設為 true
 const error = ref(null);      // 用於存放錯誤訊息
@@ -95,8 +94,8 @@ const closeModal = () => {
 };
 
 const handleFormSubmit = () => {
-  closeModal(); // 關閉表單
-  loadPreferences(); // 重新載入列表，這是實現即時更新的關鍵！
+  closeModal();
+  loadPreferences();
 };
 
 const openDeleteModal = (item) => {
@@ -110,8 +109,8 @@ const handleConfirmDelete = async (sn) => {
   try {
     await apiService.deleteLike(sn);
     alert('刪除成功！');
-    closeDeleteModal(); // 關閉刪除視窗
-    await loadPreferences(); // 重新整理列表
+    closeDeleteModal();
+    await loadPreferences();
   } catch (err) {
     console.error('刪除失敗:', err);
     alert('刪除失敗，請稍後再試。');
@@ -150,7 +149,6 @@ const formatCurrency = (value) => {
 </script>
 
 <style scoped>
-/* 直接使用您提供的、設計更完善的 CSS 樣式 */
 .preference-dashboard {
   padding: 20px;
   max-width: 95%;

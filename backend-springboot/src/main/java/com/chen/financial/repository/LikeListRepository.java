@@ -52,10 +52,7 @@ public interface LikeListRepository extends JpaRepository<LikeList, Long> {
             @Param("p_debit_account") String p_debit_account
     );
 
-    /**
-     * 呼叫 sp_delete_like_list 刪除指定的喜好紀錄。
-     * @param p_sn 紀錄的流水號 (Primary Key)
-     */
+    /**呼叫 sp_delete_like_list 刪除指定的喜好紀錄*/
     @Procedure(procedureName = "sp_delete_like_list")
     void deleteLikeList(@Param("p_sn") Long p_sn);
 }
