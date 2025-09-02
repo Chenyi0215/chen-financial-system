@@ -1,7 +1,3 @@
-### ======================================================
-### 陳家金融商品喜好紀錄系統 API 測試
-### ======================================================
-
 # 變數定義
 @host = http://localhost:8080/api/v1
 @userId = A123456789
@@ -27,7 +23,6 @@ Content-Type: application/json
 
 
 ### 3. 更新一筆喜好商品 (PUT)
-# 我們將第一筆紀錄(sn=1)的商品(product_id=1)數量從 100 改成 150
 PUT {{host}}/likes/{{sn_to_update}}
 Content-Type: application/json
 
@@ -41,3 +36,7 @@ Content-Type: application/json
 ### 4. 刪除一筆喜好商品 (DELETE)
 # 我們將 sn=2 的紀錄刪除
 DELETE {{host}}/likes/{{sn_to_delete}}
+
+
+### 5. 查詢所有可選的金融商品 (GET)
+GET {{host}}/products

@@ -71,11 +71,15 @@ DELIMITER $$
 CREATE PROCEDURE sp_get_like_list_by_user(
     IN p_user_id VARCHAR(20)
 )
-READS SQL DATA
+    READS SQL DATA
 BEGIN
 SELECT
     ll.sn,
+    ll.product_id AS productId,
+    ll.quantity,
     p.product_name AS productName,
+    p.price,
+    p.fee_rate AS feeRate,
     ll.debit_account AS debitAccount,
     u.email,
     (p.price * ll.quantity * p.fee_rate) AS totalFee,

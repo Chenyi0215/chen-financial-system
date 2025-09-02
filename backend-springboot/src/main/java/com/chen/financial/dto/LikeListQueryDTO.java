@@ -9,7 +9,11 @@ import java.math.BigDecimal;
  */
 public interface LikeListQueryDTO {
     Long getSn();
+    Integer getProductId();
+    Integer getQuantity();
     String getProductName();
+    BigDecimal getPrice();
+    BigDecimal getFeeRate();
     String getDebitAccount();
     String getEmail();
     BigDecimal getTotalFee();
